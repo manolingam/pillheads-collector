@@ -2,9 +2,10 @@ import {
   Flex,
   Input,
   FormControl,
-  FormLabel,
+  Link as ChakraLink,
   FormHelperText,
-  Button
+  Button,
+  Text
 } from '@chakra-ui/react';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -30,22 +31,36 @@ export default function Home() {
       >
         <Header />
         <Flex
-          maxW='70%'
+          maxW='100%'
           direction='column'
           alignItems='center'
           justifyContent='center'
           mx='auto'
         >
-          <FormControl w='500px' alignItems='baseline'>
-            <FormLabel
-              fontFamily={theme.fonts.hansonBold}
-              fontSize='24px'
-              letterSpacing='1px'
-              lineHeight='25px'
+          <Text
+            fontFamily={theme.fonts.hansonBold}
+            fontSize={{ lg: '24px', sm: '18px' }}
+            w='70%'
+            mb='2rem'
+          >
+            A shareable profiler for the{' '}
+            <ChakraLink
+              href='https://opensea.io/collection/pillheadsnft'
+              isExternal
+              textDecoration='underline'
+              color={theme.colors.brand.yellowOne}
+              bg='black'
+              p='5px'
             >
-              Ethereum Address
-            </FormLabel>
+              Pillheads
+            </ChakraLink>{' '}
+            you own!
+          </Text>
+          <FormControl w='70%' alignItems='baseline'>
             <Input
+              placeholder='0x...'
+              fontFamily={theme.fonts.disketMono}
+              fontSize='16px'
               p='1rem'
               onChange={(e) => {
                 setAddress(e.target.value);
