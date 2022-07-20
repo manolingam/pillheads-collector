@@ -5,6 +5,7 @@ import Router from 'next/router';
 import '../styles/globals.css';
 import '../nprogress.css';
 
+import { Layout } from '../shared/Layout';
 import { theme } from '../theme';
 import Fonts from '../Fonts';
 
@@ -16,7 +17,9 @@ function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider theme={theme}>
       <Fonts />
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </ChakraProvider>
   );
 }

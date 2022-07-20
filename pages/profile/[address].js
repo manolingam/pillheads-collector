@@ -1,41 +1,23 @@
 import { Flex } from '@chakra-ui/react';
 
-import axios from 'axios';
-
-import Profile from '../../views/Profile';
+import { Profile } from '../../views/Profile';
 import { Page404 } from '../../shared/404';
+import { fetchPillheadsbyAddress } from '../../utils/requests';
 
 export async function getServerSideProps(context) {
-  const defaultQuery = `query fetchPillheadOwner {
-    pillheadOwners(where: {address: "${context.params.address}"}) {
-      pillheads {
-        tokenUri
-      }
+  const pillheadOwners = await fetchPillheadsbyAddress(context.params.address);
+  return {
+    props: {
+      pillheads: pillheadOwners.length ? pillheadOwners[0].pillheads : [],
+      address: context.params.address
     }
-}`;
-
-  const graphqlQuery = {
-    operationName: 'getPillheadOwners',
-    query: defaultQuery,
-    variables: {}
   };
-
-  const { data } = await axios.post(
-    `https://api.thegraph.com/subgraphs/name/manolingam/pillheads`,
-    graphqlQuery
-  );
-
-  const pillheads = data.data.pillheadOwners.length
-    ? data.data.pillheadOwners[0].pillheads
-    : [];
-
-  return { props: { pillheads } };
 }
 
-const ProfilePage = ({ pillheads }) => {
+const ProfilePage = ({ pillheads, address }) => {
   return pillheads.length > 0 ? (
     <Flex direction='column' w='100%'>
-      <Profile pillheads={pillheads} />
+      <Profile pillheads={pillheads} address={address} />
     </Flex>
   ) : (
     <Page404 />
