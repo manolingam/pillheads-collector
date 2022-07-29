@@ -7,28 +7,35 @@ export const Footer = () => {
   return (
     <Flex
       w='100%'
-      justifyContent='space-around'
-      alignItems='baseline'
+      direction='column-reverse'
+      alignItems='center'
       position='absolute'
-      bottom='0'
+      bottom='.5rem'
     >
       <Text fontFamily={theme.fonts.disketMono} fontSize='12px'>
-        A community tribute - v0.0.1
+        A community tribute by{' '}
+        <ChakraLink
+          isExternal
+          href='https://twitter.com/saimano1996'
+          textDecoration='underline'
+        >
+          Saimano
+        </ChakraLink>
       </Text>
-      <Flex direction='row' bg='black' p='1rem' alignItems='center'>
+      <Flex direction='row' p='1rem' alignItems='center'>
         <ChakraLink
           href={PILLHEADS_TWITTER}
           isExternal
           fontSize='16px'
-          color={theme.colors.brand.yellowOne}
-          mr='2rem'
+          color='black'
+          mr='1rem'
         >
           <i className='fa-brands fa-twitter'></i>
         </ChakraLink>
         <ChakraLink
           href={PILLHEADS_DISCORD}
           isExternal
-          color={theme.colors.brand.yellowOne}
+          color='black'
           fontSize='16px'
         >
           <i className='fa-brands fa-discord'></i>

@@ -1,5 +1,7 @@
-import { Flex, Image, SimpleGrid, Box, Text, Link } from '@chakra-ui/react';
+import { Flex, SimpleGrid, Box, Text, Link } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
+
+import Image from 'next/image';
 
 import { theme } from '../theme';
 import { fetchPillheadMetadata } from '../utils/requests';
@@ -47,8 +49,10 @@ export const Profile = ({ pillheads }) => {
               <Image
                 src={token.image}
                 alt='pillhead'
-                w='250px'
-                fallbackSrc='https://arweave.net/76k022PqZzCeVlycgIY87tfjcZCE4MOvcQ1alYaGz-8'
+                width={250}
+                height={250}
+                placeholder='blur'
+                blurDataURL={token.image}
               />
               <Text
                 bg={theme.colors.brand.yellowOne}
