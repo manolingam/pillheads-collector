@@ -27,9 +27,6 @@ export const Header = () => {
       h='100px'
       w='100%'
       bg='white'
-      position='absolute'
-      top='0'
-      left='0'
       alignItems='center'
       justifyContent='space-between'
     >

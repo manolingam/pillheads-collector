@@ -12,7 +12,7 @@ export const Layout = ({ children }) => {
         direction='column'
         minH='100vh'
         maxW='70rem'
-        justifyContent='center'
+        justifyContent='space-between'
         alignItems='center'
         mx='auto'
       >

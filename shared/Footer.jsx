@@ -5,13 +5,7 @@ import { PILLHEADS_DISCORD, PILLHEADS_TWITTER } from '../config';
 
 export const Footer = () => {
   return (
-    <Flex
-      w='100%'
-      direction='column-reverse'
-      alignItems='center'
-      position='absolute'
-      bottom='.5rem'
-    >
+    <Flex w='100%' direction='column-reverse' alignItems='center' mb='1rem'>
       <Text fontFamily={theme.fonts.disketMono} fontSize='12px'>
         A community tribute by{' '}
         <ChakraLink

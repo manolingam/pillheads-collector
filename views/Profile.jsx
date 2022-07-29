@@ -29,7 +29,7 @@ export const Profile = ({ pillheads }) => {
       direction='column'
       alignItems='center'
       justifyContent='center'
-      mt='125px'
+      mt='4rem'
       mb='4rem'
     >
       <SimpleGrid columns={{ lg: 6, md: 2, sm: 1 }} spacing={10}>
